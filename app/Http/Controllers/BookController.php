@@ -23,7 +23,7 @@ class BookController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'author' => 'required|max:255',
-            'year' => 'required|max:2077',
+            'year' => 'required|min:1945|max:2077',
             'publisher' => 'required|max:255',
             'city' => 'required|max:50',
             'cover' => 'required',
@@ -45,7 +45,7 @@ class BookController extends Controller
         } else {
             $notification = array(
                 'message' => 'Data buku gagal disimpan',
-                'alert-type' => 'success'
+                'alert-type' => 'error'
             );
         }
         return redirect()->route('book')->with($notification);
