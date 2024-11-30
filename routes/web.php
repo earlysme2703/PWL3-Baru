@@ -27,6 +27,8 @@ Route::group(['middleware' => ['role:pustakawan']], function () {
     Route::patch('/book/{id}/update', [BookController::class, 'update'])->name('book.update');
     Route::delete('/book/{id}/destroy', [BookController::class, 'destroy'])->name('book.destroy');
     Route::get('/book/print', [BookController::class, 'printToPdf'])->name('book.print');
+    Route::get('/book/export', [BookController::class, 'export'])->name('book.export');
+    Route::post('/book/import', [BookController::class, 'import'])->name('book.import');
 });
 
 require __DIR__ . '/auth.php';
